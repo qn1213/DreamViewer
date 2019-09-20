@@ -20,9 +20,42 @@ namespace DreamViewer
     /// </summary>
     public partial class MainWindow : Window
     {
+        Window dbTestWindow = null;
         public MainWindow()
         {
             InitializeComponent();
+            this.Closed += MainWindow_Closed;
         }
+
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown(0);
+        }
+
+        private void BtOpenDbTest_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (dbTestWindow==null)
+                {
+                    dbTestWindow = new DBtest();
+                    dbTestWindow.Show();
+                    dbTestWindow.Owner = this;
+                }
+                else
+                {
+                    dbTestWindow.Show();
+                    dbTestWindow.Activate();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
+            
+        }
+
+        
     }
 }
