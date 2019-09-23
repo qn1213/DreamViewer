@@ -24,5 +24,12 @@ namespace DreamViewer
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window zipTest = new ZipViewTest();
+
+            zipTest.Show();
+        }
     }
 }
