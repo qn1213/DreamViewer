@@ -78,6 +78,7 @@
     </ApplicationDefinition>
     <Compile Include="DBtest.xaml.cs">
       <DependentUpon>DBtest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ZipViewTest.xaml.cs">
       <DependentUpon>ZipViewTest.xaml</DependentUpon>
     </Compile>
@@ -94,6 +95,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="DBtest.xaml">
+    <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ZipViewTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
