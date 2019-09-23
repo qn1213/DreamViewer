@@ -22,6 +22,7 @@ namespace DreamViewerCore
             //		Console.WriteLine("opt option");
             //	}
             //}
+            //Console.ReadKey(true); //Pause
         }
 
         private static void HandleParseError(IEnumerable<Error> errs)
