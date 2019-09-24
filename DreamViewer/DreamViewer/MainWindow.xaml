@@ -8,12 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button x:Name="BTOpenDbTest" Content="Open DBtest" HorizontalAlignment="Left" Margin="44,174,0,0" VerticalAlignment="Top" Width="75" Click="BtOpenDbTest_Click"/>
-        <Button Content="Zip View" HorizontalAlignment="Left" Margin="28,30,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <TextBox x:Name="ProcName" HorizontalAlignment="Left" Height="23" Margin="226,159,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="t_Text" HorizontalAlignment="Left" Height="23" Margin="226,205,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="t_bool1" HorizontalAlignment="Left" Height="23" Margin="226,246,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Program Start" HorizontalAlignment="Left" Margin="63,159,0,0" VerticalAlignment="Top" Width="86" Height="23" Click="Button_Click_1"/>
-        <TextBox x:Name="t_bool2" HorizontalAlignment="Left" Height="23" Margin="226,296,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Zip View" HorizontalAlignment="Left" Margin="28,30,0,0" VerticalAlignment="Top" Width="87" Click="Button_Click"/>
+        <Button Content="External Load" HorizontalAlignment="Left" Margin="28,66,0,0" VerticalAlignment="Top" Width="87" Click="Button_Click_2"/>
 
     </Grid>
 </Window>

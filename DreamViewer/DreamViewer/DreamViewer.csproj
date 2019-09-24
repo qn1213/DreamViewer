@@ -78,10 +78,17 @@
     </ApplicationDefinition>
     <Compile Include="DBtest.xaml.cs">
       <DependentUpon>DBtest.xaml</DependentUpon>
+	</Compile>
+    <Compile Include="LoadExternalApp.xaml.cs">
+      <DependentUpon>LoadExternalApp.xaml</DependentUpon>
     </Compile>
     <Compile Include="ZipViewTest.xaml.cs">
       <DependentUpon>ZipViewTest.xaml</DependentUpon>
     </Compile>
+    <Page Include="LoadExternalApp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
