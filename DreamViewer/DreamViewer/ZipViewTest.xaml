@@ -7,9 +7,20 @@
         mc:Ignorable="d"
         Title="ZipViewTest" Height="450" Width="800">
     <Grid>
-        <Button Content="열기" HorizontalAlignment="Right" Margin="0,0,10,9" VerticalAlignment="Bottom" Width="75" Click="Button_Click"/>
-        <TextBox x:Name="addr" HorizontalAlignment="Left" Height="23" Margin="10,0,0,6" TextWrapping="Wrap" Text="경로 표시" VerticalAlignment="Bottom" Width="670" FontSize="10"/>
-        <Button Content="리스트뽑기" HorizontalAlignment="Left" Margin="318,186,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <TreeView x:Name="treenode" HorizontalAlignment="Left" Height="308" Margin="41,45,0,0" VerticalAlignment="Top" Width="250"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="215*"/>
+            <ColumnDefinition Width="577*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="334" Margin="20,31,0,0" VerticalAlignment="Top" Width="333" Grid.ColumnSpan="2"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="334" Margin="163,31,0,0" VerticalAlignment="Top" Width="287" Grid.Column="1"/>
+        <Button Content="열기" HorizontalAlignment="Right" Margin="0,0,10,9" VerticalAlignment="Bottom" Width="75" Click="Button_Click" Grid.Column="1"/>
+        <TextBox x:Name="addr" HorizontalAlignment="Left" Height="23" Margin="10,0,0,6" TextWrapping="Wrap" Text="경로 표시" VerticalAlignment="Bottom" Width="670" FontSize="10" Grid.ColumnSpan="2"/>
+        <Button Content="리스트뽑기" HorizontalAlignment="Left" Margin="52,333,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Grid.Column="1"/>
+        <TreeView x:Name="treenode" HorizontalAlignment="Left" Height="308" Margin="41,45,0,0" VerticalAlignment="Top" Width="208" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="test_text" HorizontalAlignment="Left" Height="250" Margin="297,60,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="457,224,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="457,271,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="457,319,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <Button x:Name="Extraction" Content="추출" HorizontalAlignment="Left" Margin="276,333,0,0" VerticalAlignment="Top" Width="75" Click="Extraction_Click" Grid.Column="1"/>
     </Grid>
 </Window>

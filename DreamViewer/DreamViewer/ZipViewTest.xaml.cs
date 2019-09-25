@@ -85,20 +85,53 @@ namespace DreamViewer
             }
         }
 
+        private void Extraction_Click(object sender, RoutedEventArgs e)
+        {
+            string info_text = "info.txt";
+            try
+            {
+                string text = new string(
+                (new System.IO.StreamReader(
+                System.IO.Compression.ZipFile.OpenRead(path)
+                .Entries.Where(x => x.Name.Equals(info_text,
+                                             StringComparison.InvariantCulture))
+                .FirstOrDefault()
+                .Open(), Encoding.UTF8)
+                .ReadToEnd())
+                .ToArray());
+
+                test_text.Text = text;
+            }
+            catch (Exception)
+            {
+                System.Windows.MessageBox.Show("파일 선택부터 하세요");
+            }
+           
+        }
+
+        // 파일 트리 뽑기
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            using (FileStream fs = new FileStream(path, FileMode.Open))
-            using (ZipArchive archive = new ZipArchive(fs, ZipArchiveMode.Read))
+            try
             {
-                TreeViewItem item = new TreeViewItem();
-
-                foreach (ZipArchiveEntry entry in archive.Entries)
+                using (FileStream fs = new FileStream(path, FileMode.Open))
+                using (ZipArchive archive = new ZipArchive(fs, ZipArchiveMode.Read))
                 {
-                    item.Header = path;
-                    item.Items.Add(entry.Name);
+                    TreeViewItem item = new TreeViewItem();
+
+                    foreach (ZipArchiveEntry entry in archive.Entries)
+                    {
+                        item.Header = path;
+                        item.Items.Add(entry.Name);
+                    }
+                    treenode.Items.Add(item);
                 }
-                treenode.Items.Add(item);
             }
+            catch (Exception)
+            {
+                System.Windows.MessageBox.Show("파일 선택부터 하세요");
+            }
+            
         }
     }
 }

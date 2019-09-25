@@ -55,10 +55,8 @@ namespace DreamViewer
             {
                 Console.WriteLine(ex);
                 throw;
-            }
-            
+            }            
         }
-
         
         private void Button_Click(object sender, RoutedEventArgs e)
         {
