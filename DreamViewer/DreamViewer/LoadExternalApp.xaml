@@ -12,6 +12,7 @@
         <TextBox x:Name="t_bool1" HorizontalAlignment="Left" Height="23" Margin="178,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <Button Content="Program Start" HorizontalAlignment="Left" Margin="15,28,0,0" VerticalAlignment="Top" Width="86" Height="23" Click="Button_Click_1"/>
         <TextBox x:Name="t_bool2" HorizontalAlignment="Left" Height="23" Margin="178,165,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tempText" HorizontalAlignment="Left" Height="23" Margin="15,90,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

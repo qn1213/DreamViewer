@@ -18,7 +18,7 @@ namespace DreamViewerCore
     */
 
             //test args input
-            args = new string[] { "sql", "-a", "init" };
+            //args = new string[] { "sql", "-a", "init" };
 
             CommandLine.Parser.Default.ParseArguments<AddOptions, CommitOptions, SqlOptions>(args)
     .MapResult(
@@ -34,7 +34,7 @@ namespace DreamViewerCore
             //		Console.WriteLine("opt option");
             //	}
             //}
-            Console.ReadKey(true); //Pause
+           // Console.ReadKey(true); //Pause
         }
 
     }
