@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CommandLine;
 
 using Sample;
+//using DreamViewerCore.test.AttrTest;
 
 namespace DreamViewerCore
 {
@@ -10,31 +11,38 @@ namespace DreamViewerCore
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine(string.Compare("H", "h", ignoreCase: true));
 
-            /*CommandLine.Parser.Default.ParseArguments<Options>(args)
-    .WithParsed<Options>(opts => sample.RunOptionsAndReturnExitCode(opts))
-    .WithNotParsed<Options>((errs) => sample.HandleParseError(errs));
-    */
-
+///////////////////////////DEBUG
+#if DEBUG
             //test args input
-            args = new string[] { "sql", "-a", "init" };
+            args = new string[] { "version" };
+            Console.Write("executed arguments : ");
+            foreach (var item in args)
+            {
+                Console.Write(item);
+                Console.Write(",");
+            }
+            Console.WriteLine();
 
-            CommandLine.Parser.Default.ParseArguments<AddOptions, CommitOptions, SqlOptions>(args)
+            //AttrTest.Parse<AddOptions>("str1");
+#endif
+            ////////////////////////////////
+
+
+
+            //start parsing argument
+            CommandLine.Parser.Default.ParseArguments<AddOptions, SqlOptions>(args)
     .MapResult(
-      (AddOptions opts) => sample.RunAddAndReturnExitCode(opts),
-      (CommitOptions opts) => sample.RunCommitAndReturnExitCode(opts),
       (SqlOptions opts) => sample.RunSqlAndReturnExitCode(opts),
+      (AddOptions opts) => sample.RunAddAndReturnExitCode(opts),
       errs => 1);
-            //foreach (string item in args)
-            //{
 
-            //	if (string.Compare(item, "opt", ignoreCase: true) == 0)
-            //	{
-            //		Console.WriteLine("opt option");
-            //	}
-            //}
+
+///////////////////////////DEBUG
+#if DEBUG
             Console.ReadKey(true); //Pause
+#endif
+////////////////////////////////
         }
 
     }

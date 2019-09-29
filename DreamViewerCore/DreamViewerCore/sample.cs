@@ -43,105 +43,36 @@ namespace Sample
                     //string sqltxt = global::DreamViewerCore.Properties.Resources.CreateTables;
                     command.CommandText = global::DreamViewerCore.Properties.Resources.CreateTables;
                     int result = command.ExecuteNonQuery();
+
+                    //connection.Close();
                     break;
                 default:
                     break;
             }
-            return 0;
+            return 1;
             //throw new NotImplementedException();
         }
 
-        public static int RunCommitAndReturnExitCode(CommitOptions opts)
+        internal static int RunAddAndReturnExitCode(AddOptions opts)
         {
-            Console.WriteLine("xCommited!!");
-            return 0;
-            //throw new NotImplementedException();
-        }
-
-        public static int RunAddAndReturnExitCode(AddOptions opts)
-        {
-            IEnumerable<string> enumerable = opts.InputFiles;
-            IEnumerator<string> e = enumerable.GetEnumerator();
-
-            while (e.MoveNext())
-            {
-                Console.WriteLine("x - " + e.Current);
-            }
-
-            Console.WriteLine("xstdin : " + opts.stdin);
-
-            if (opts.Verbose)
-            {
-                Console.WriteLine($"xVerbose output enabled. Current Arguments: -v {opts.Verbose}");
-                Console.WriteLine("xQuick Start Example! App is in Verbose mode!");
-            }
-            else
-            {
-                Console.WriteLine($"xCurrent Arguments: -v {opts.Verbose}");
-                Console.WriteLine("xQuick Start Example!");
-            }
-            return 0;
-            //throw new NotImplementedException();
+            Console.WriteLine(opts.Offset);
+            Console.WriteLine(opts.Offset2);
+            return 1;
         }
 
 
 
-        public static void RunOptionsAndReturnExitCode(Options opts)
-        {
-            IEnumerable<string> enumerable = opts.InputFiles;
-            IEnumerator<string> e = enumerable.GetEnumerator();
 
-            while (e.MoveNext())
-            {
-                Console.WriteLine(e.Current);
-            }
-
-            Console.WriteLine(opts.stdin);
-
-            if (opts.Verbose)
-            {
-                Console.WriteLine($"Verbose output enabled. Current Arguments: -v {opts.Verbose}");
-                Console.WriteLine("Quick Start Example! App is in Verbose mode!");
-            }
-            else
-            {
-                Console.WriteLine($"Current Arguments: -v {opts.Verbose}");
-                Console.WriteLine("Quick Start Example!");
-            }
-        }
-        public static void HandleParseError(IEnumerable<Error> errs)
-        {
-        }
         #endregion
     }
 
     #region OPTIONS
-    class Options
-    {
-        [Option('r', "read", Required = true, HelpText = "Input files to be processed.")]
-        public IEnumerable<string> InputFiles { get; set; }
-
-        // Omitting long name, defaults to name of property, ie "--verbose"
-        [Option('v',
-          Default = false,
-          HelpText = "Prints all messages to standard output.")]
-        public bool Verbose { get; set; }
-
-        [Option("stdin",
-          Default = false,
-          HelpText = "Read from stdin")]
-        public bool stdin { get; set; }
-
-        [Value(0, MetaName = "offset", HelpText = "File offset.")]
-        public long? Offset { get; set; }
-    }
-
 
     [Verb("add", HelpText = "Test Sample")]
     class AddOptions
     {
         //normal options here
-        [Option('r', "read", Required = true, HelpText = "xInput files to be processed.")]
+        [Option('r', "read", HelpText = "xInput files to be processed.")]
         public IEnumerable<string> InputFiles { get; set; }
 
         // Omitting long name, defaults to name of property, ie "--verbose"
@@ -155,20 +86,29 @@ namespace Sample
           HelpText = "xRead from stdin")]
         public bool stdin { get; set; }
 
-        [Value(0, MetaName = "offset", HelpText = "xFile offset.")]
+        
+        [Value(2, MetaName = "offset", HelpText = "xFile offset.")]
         public long? Offset { get; set; }
+        [Value(3, MetaName = "offset2", HelpText = "xFile offset.")]
+        public long? Offset2 { get; set; }
+
     }
-    [Verb("commit", HelpText = "Test Sample")]
-    class CommitOptions
-    {
-        //commit options here
-    }
+
+
     [Verb("sql", HelpText = "SQL Query options")]
     class SqlOptions
     {
         [Option('a', "action", Required = true, HelpText = "Select DB Actions\ninit - initialize or reset DB to default empty")]
         public string sqlaction { get; set; }
         //clone options here
+        [Option("stdin",
+          Default = false,
+          HelpText = "xRead from stdin")]
+        public bool stdin { get; set; }
+        [Option("stdin2",
+          Default = false,
+          HelpText = "xRead from stdin")]
+        public bool stdin2 { get; set; }
     }
     #endregion
 }
