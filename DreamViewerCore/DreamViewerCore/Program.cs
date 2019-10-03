@@ -12,10 +12,14 @@ namespace DreamViewerCore
         static void Main(string[] args)
         {
 
-///////////////////////////DEBUG
+            ///////////////////////////DEBUG
 #if DEBUG
             //test args input
-            args = new string[] { "version" };
+            //string argstring = "sql -q insert into Tartist values ('napata')";
+            //args = argstring.Split(' ',StringSplitOptions.RemoveEmptyEntries);
+            //args = new string[] { "sql","-q", "insert into TType values ('Manga');","-v" };
+            //args = new string[] { "sql", "--create", "-v" };
+            args = new string[] { "sql", "-r", "select * from TArtist", "-v" };
             Console.Write("executed arguments : ");
             foreach (var item in args)
             {
@@ -31,16 +35,24 @@ namespace DreamViewerCore
 
 
             //start parsing argument
-            CommandLine.Parser.Default.ParseArguments<AddOptions, SqlOptions>(args)
+            try
+            {
+                CommandLine.Parser.Default.ParseArguments<AddOptions, SqlOptions>(args)
     .MapResult(
       (SqlOptions opts) => sample.RunSqlAndReturnExitCode(opts),
       (AddOptions opts) => sample.RunAddAndReturnExitCode(opts),
       errs => 1);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("StackTrace : " + e.StackTrace);
+                //throw;
+            }
 
 
 ///////////////////////////DEBUG
 #if DEBUG
-            Console.ReadKey(true); //Pause
+            //Console.ReadKey(true); //Pause
 #endif
 ////////////////////////////////
         }
